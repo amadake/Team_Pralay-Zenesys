@@ -3,133 +3,686 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Suppliers & Procurement | Supply AI</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Supply AI - Suppliers</title>
+
+    <link rel="stylesheet" href="suppliers.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
+
 <body>
 
-    <div class="app-container">
-        <!-- SIDEBAR -->
-        <aside class="sidebar">
-            <div class="sidebar-header">
-                <div class="logo-box"><i data-lucide="box"></i></div>
-                <div>
-                    <span class="logo-text">SUPPLY AI</span>
-                    <p class="logo-sub">Smarter Forecasting</p>
-                </div>
+<div class="dashboard-wrapper">
+
+    <!-- ================= SIDEBAR ================= -->
+    <aside class="sidebar">
+
+        <div class="sidebar-brand">
+            <div class="logo-container">
+                <i data-lucide="box"></i>
             </div>
-            <nav class="nav-menu">
-                <a href="index.html" class="nav-link"><i data-lucide="layout-dashboard"></i> Dashboard</a>
-                <a href="inventory.html" class="nav-link"><i data-lucide="package"></i> Inventory</a>
-                <a href="shipments.html" class="nav-link"><i data-lucide="truck"></i> Shipments</a>
-                <a href="suppliers.html" class="nav-link active"><i data-lucide="users"></i> Suppliers</a>
-                <a href="recommendations.html" class="nav-link"><i data-lucide="sparkles"></i> AI Recommendations</a>
-            </nav>
-        </aside>
 
-        <!-- MAIN CONTENT -->
-        <main class="main-content">
-            <header class="top-header">
-                <div class="search-bar">
-                    <i data-lucide="search"></i>
-                    <input type="text" placeholder="Search products or vendors...">
-                </div>
-                <div class="header-actions">
-                    <div class="user-pill">
-                        <div class="avatar">AR</div>
-                        <span class="u-name">Alex Rivera</span>
-                    </div>
-                </div>
-            </header>
-
-            <div class="dashboard-body">
-                <!-- HERO BANNER -->
-                <div class="hero-banner">
-                    <div class="hero-text">
-                        <h1>Supplier Procurement</h1>
-                        <p>Directly source products from vetted global vendors.</p>
-                    </div>
-                    <div class="hero-icon"><i data-lucide="shopping-bag"></i></div>
-                </div>
-
-                <!-- CATEGORY FILTER -->
-                <div class="category-tabs">
-                    <button class="tab active" onclick="filterCategory('all')">All Products</button>
-                    <button class="tab" onclick="filterCategory('laptop')">Laptops</button>
-                    <button class="tab" onclick="filterCategory('mobile')">Mobiles</button>
-                    <button class="tab" onclick="filterCategory('electronics')">Electronics</button>
-                </div>
-
-                <div class="procurement-grid">
-                    <!-- PRODUCT SELECTION LIST -->
-                    <div class="card product-list-card">
-                        <div class="card-header"><h3>Select Product</h3></div>
-                        <div class="product-grid" id="productGrid">
-                            <!-- Products will be injected by JS -->
-                        </div>
-                    </div>
-
-                    <!-- SUPPLIER COMPARISON -->
-                    <div class="card supplier-selection-card">
-                        <div class="card-header">
-                            <h3>Available Suppliers</h3>
-                            <span id="selectedProductName" class="text-light">Select a product to compare</span>
-                        </div>
-                        <table class="supplier-table">
-                            <thead>
-                                <tr>
-                                    <th>Vendor</th>
-                                    <th>Price</th>
-                                    <th>Lead Time</th>
-                                    <th>Rating</th>
-                                    <th>Action</th>
-                                </tr>
-                            </thead>
-                            <tbody id="supplierTableBody">
-                                <tr><td colspan="5" style="text-align:center; padding: 40px; color: #94a3b8;">Select a product from the left to see vendor offers</td></tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </main>
-    </div>
-
-    <!-- INVOICE MODAL (Mail Simulator) -->
-    <div id="invoiceModal" class="modal-overlay">
-        <div class="modal-card">
-            <div class="mail-header">
-                <div class="mail-top">
-                    <i data-lucide="mail"></i>
-                    <span>Email Sent Successfully</span>
-                </div>
-                <button class="close-btn" onclick="closeModal()">×</button>
-            </div>
-            <div class="invoice-container">
-                <div class="invoice-header">
-                    <h2>ORDER INVOICE</h2>
-                    <p>Order #ORD-55214</p>
-                </div>
-                <div class="invoice-details">
-                    <div class="inv-row"><span>To:</span> <strong>Alex Rivera (Procurement)</strong></div>
-                    <div class="inv-row"><span>Vendor:</span> <strong id="invVendor">Global Tech Ltd.</strong></div>
-                    <div class="inv-row"><span>Product:</span> <strong id="invProduct">MacBook Pro M2</strong></div>
-                    <hr>
-                    <div class="inv-total">
-                        <span>Total Amount</span>
-                        <h2 id="invPrice">₹1,85,000</h2>
-                    </div>
-                </div>
-                <div class="mail-footer">
-                    <p>A confirmation mail with tracking details has been sent to your registered email.</p>
-                </div>
+            <div>
+                <span class="main-logo">SUPPLY AI</span>
+                <span class="sub-logo">
+                    Smarter Forecasting,<br>
+                    Stronger Fulfillment
+                </span>
             </div>
         </div>
-    </div>
 
-    <script src="supplier-logic.js"></script>
-    <script>lucide.createIcons();</script>
+        <nav class="sidebar-nav">
+
+            <a href="index.html" class="nav-item">
+                <i data-lucide="layout-dashboard"></i>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="order.html" class="nav-item">
+                <i data-lucide="clipboard-list"></i>
+                <span>Orders</span>
+            </a>
+
+            <a href="inventory.html" class="nav-item">
+                <i data-lucide="package"></i>
+                <span>Inventory</span>
+            </a>
+
+            <a href="Demand_forecast.html" class="nav-item">
+                <i data-lucide="trending-up"></i>
+                <span>Demand Forecast</span>
+            </a>
+
+            <a href="shipment.html" class="nav-item">
+                <i data-lucide="truck"></i>
+                <span>Shipments</span>
+            </a>
+
+            <a href="suppliers.html" class="nav-item active">
+                <i data-lucide="users"></i>
+                <span>Suppliers</span>
+            </a>
+
+            <a href="reports.html" class="nav-item">
+                <i data-lucide="file-bar-chart"></i>
+                <span>Reports</span>
+            </a>
+
+            <a href="recommendations.html" class="nav-item">
+                <i data-lucide="sparkles"></i>
+                <span>AI Recommendations</span>
+            </a>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+
+            <a href="#" class="nav-item">
+                <i data-lucide="settings"></i>
+                <span>Settings</span>
+            </a>
+
+            <a href="#" class="nav-item">
+                <i data-lucide="log-out"></i>
+                <span>Logout</span>
+            </a>
+
+        </div>
+
+    </aside>
+
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="main-container">
+
+        <!-- HEADER -->
+        <header class="top-header">
+
+            <div class="search-container">
+                <i data-lucide="search"></i>
+                <input
+                    type="text"
+                    placeholder="Search suppliers, products..."
+                >
+            </div>
+
+            <div class="header-right">
+
+                <span class="date">Aug 24, 2024</span>
+
+                <div class="notification-icon">
+                    <i data-lucide="bell"></i>
+                    <span class="notif-badge">3</span>
+                </div>
+
+                <div class="user-profile">
+
+                    <div class="avatar">AR</div>
+
+                    <div class="user-info">
+                        <span class="name">Alex Rivera</span>
+                        <span class="role">Operations Head</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- CONTENT -->
+
+        <div class="content-body">
+
+            <!-- PAGE TITLE -->
+
+            <div class="page-heading">
+
+                <div>
+                    <h1>Suppliers</h1>
+                    <p>Manage suppliers and monitor supplier performance</p>
+                </div>
+
+                <button class="add-supplier">
+                    <i data-lucide="plus"></i>
+                    Add Supplier
+                </button>
+
+            </div>
+
+
+            <!-- KPI CARDS -->
+
+            <div class="kpi-grid">
+
+                <div class="kpi-card">
+
+                    <div class="kpi-icon light-blue">
+                        <i data-lucide="users"></i>
+                    </div>
+
+                    <div class="kpi-data">
+                        <span class="label">Total Suppliers</span>
+                        <span class="value">48</span>
+                        <span class="trend up">↑ 6.4% this month</span>
+                    </div>
+
+                </div>
+
+
+                <div class="kpi-card">
+
+                    <div class="kpi-icon light-green">
+                        <i data-lucide="circle-check"></i>
+                    </div>
+
+                    <div class="kpi-data">
+                        <span class="label">Active Suppliers</span>
+                        <span class="value">42</span>
+                        <span class="trend up">87.5% active</span>
+                    </div>
+
+                </div>
+
+
+                <div class="kpi-card">
+
+                    <div class="kpi-icon light-orange">
+                        <i data-lucide="clock"></i>
+                    </div>
+
+                    <div class="kpi-data">
+                        <span class="label">Delayed Suppliers</span>
+                        <span class="value">5</span>
+                        <span class="trend warning">Needs attention</span>
+                    </div>
+
+                </div>
+
+
+                <div class="kpi-card">
+
+                    <div class="kpi-icon light-purple">
+                        <i data-lucide="star"></i>
+                    </div>
+
+                    <div class="kpi-data">
+                        <span class="label">Avg. Supplier Rating</span>
+                        <span class="value">4.6</span>
+                        <span class="trend up">↑ 0.3 this month</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- SUPPLIER PERFORMANCE -->
+
+            <div class="main-grid">
+
+                <!-- Performance Chart -->
+
+                <div class="card">
+
+                    <div class="card-header">
+
+                        <div class="title-with-icon">
+
+                            <i
+                                data-lucide="bar-chart-3"
+                                class="header-icon-blue">
+                            </i>
+
+                            <h3>Supplier Performance</h3>
+
+                        </div>
+
+                        <select class="filter">
+                            <option>Last 30 Days</option>
+                            <option>Last 90 Days</option>
+                            <option>This Year</option>
+                        </select>
+
+                    </div>
+
+
+                    <div class="performance">
+
+                        <div class="performance-row">
+
+                            <div class="supplier-name">
+                                TechSupply Ltd.
+                            </div>
+
+                            <div class="performance-bar">
+                                <div
+                                    class="fill"
+                                    style="width: 95%;">
+                                </div>
+                            </div>
+
+                            <strong>95%</strong>
+
+                        </div>
+
+
+                        <div class="performance-row">
+
+                            <div class="supplier-name">
+                                KeyTech Corp.
+                            </div>
+
+                            <div class="performance-bar">
+                                <div
+                                    class="fill"
+                                    style="width: 91%;">
+                                </div>
+                            </div>
+
+                            <strong>91%</strong>
+
+                        </div>
+
+
+                        <div class="performance-row">
+
+                            <div class="supplier-name">
+                                ConnectPro
+                            </div>
+
+                            <div class="performance-bar">
+                                <div
+                                    class="fill"
+                                    style="width: 87%;">
+                                </div>
+                            </div>
+
+                            <strong>87%</strong>
+
+                        </div>
+
+
+                        <div class="performance-row">
+
+                            <div class="supplier-name">
+                                OfficeGear
+                            </div>
+
+                            <div class="performance-bar">
+                                <div
+                                    class="fill"
+                                    style="width: 82%;">
+                                </div>
+                            </div>
+
+                            <strong>82%</strong>
+
+                        </div>
+
+
+                        <div class="performance-row">
+
+                            <div class="supplier-name">
+                                VisionTech
+                            </div>
+
+                            <div class="performance-bar">
+                                <div
+                                    class="fill warning-fill"
+                                    style="width: 68%;">
+                                </div>
+                            </div>
+
+                            <strong>68%</strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- AI SUPPLIER ALERTS -->
+
+                <div class="card">
+
+                    <div class="card-header">
+
+                        <div class="title-with-icon">
+
+                            <i
+                                data-lucide="bot"
+                                class="header-icon-purple">
+                            </i>
+
+                            <h3>AI Supplier Alerts</h3>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="alert-item red-alert">
+
+                        <div class="alert-icon">
+                            <i data-lucide="alert-circle"></i>
+                        </div>
+
+                        <div>
+                            <p>VisionTech delivery delays detected</p>
+                            <span>High risk</span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="alert-item orange-alert">
+
+                        <div class="alert-icon">
+                            <i data-lucide="clock"></i>
+                        </div>
+
+                        <div>
+                            <p>ConnectPro lead time increased</p>
+                            <span>Monitor supplier</span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="alert-item green-alert">
+
+                        <div class="alert-icon">
+                            <i data-lucide="check-circle"></i>
+                        </div>
+
+                        <div>
+                            <p>TechSupply performance improved</p>
+                            <span>Excellent</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- SUPPLIER TABLE -->
+
+            <div class="card supplier-table-card">
+
+                <div class="card-header">
+
+                    <div class="title-with-icon">
+
+                        <i
+                            data-lucide="building-2"
+                            class="header-icon-blue">
+                        </i>
+
+                        <h3>Supplier Directory</h3>
+
+                    </div>
+
+                    <div class="table-actions">
+
+                        <select class="filter">
+                            <option>All Suppliers</option>
+                            <option>Active</option>
+                            <option>At Risk</option>
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <div class="table-wrapper">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+                                <th>Supplier</th>
+                                <th>Category</th>
+                                <th>Orders</th>
+                                <th>On-Time Rate</th>
+                                <th>Rating</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody>
+
+                            <tr>
+
+                                <td>
+                                    <div class="supplier-cell">
+                                        <div class="supplier-avatar blue-avatar">
+                                            TS
+                                        </div>
+
+                                        <div>
+                                            <strong>TechSupply Ltd.</strong>
+                                            <span>techsupply@example.com</span>
+                                        </div>
+                                    </div>
+                                </td>
+
+                                <td>Electronics</td>
+
+                                <td>342</td>
+
+                                <td>
+                                    <strong>95%</strong>
+                                </td>
+
+                                <td>
+                                    ⭐ 4.8
+                                </td>
+
+                                <td>
+                                    <span class="status active-status">
+                                        Active
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <button class="view-btn">
+                                        View
+                                    </button>
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>
+                                    <div class="supplier-cell">
+
+                                        <div class="supplier-avatar purple-avatar">
+                                            KC
+                                        </div>
+
+                                        <div>
+                                            <strong>KeyTech Corp.</strong>
+                                            <span>keytech@example.com</span>
+                                        </div>
+
+                                    </div>
+                                </td>
+
+                                <td>Computer Parts</td>
+
+                                <td>286</td>
+
+                                <td><strong>91%</strong></td>
+
+                                <td>⭐ 4.7</td>
+
+                                <td>
+                                    <span class="status active-status">
+                                        Active
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <button class="view-btn">
+                                        View
+                                    </button>
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>
+                                    <div class="supplier-cell">
+
+                                        <div class="supplier-avatar green-avatar">
+                                            CP
+                                        </div>
+
+                                        <div>
+                                            <strong>ConnectPro</strong>
+                                            <span>connectpro@example.com</span>
+                                        </div>
+
+                                    </div>
+                                </td>
+
+                                <td>Cables & Accessories</td>
+
+                                <td>214</td>
+
+                                <td><strong>87%</strong></td>
+
+                                <td>⭐ 4.5</td>
+
+                                <td>
+                                    <span class="status active-status">
+                                        Active
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <button class="view-btn">
+                                        View
+                                    </button>
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>
+                                    <div class="supplier-cell">
+
+                                        <div class="supplier-avatar orange-avatar">
+                                            OG
+                                        </div>
+
+                                        <div>
+                                            <strong>OfficeGear</strong>
+                                            <span>officegear@example.com</span>
+                                        </div>
+
+                                    </div>
+                                </td>
+
+                                <td>Office Equipment</td>
+
+                                <td>176</td>
+
+                                <td><strong>82%</strong></td>
+
+                                <td>⭐ 4.3</td>
+
+                                <td>
+                                    <span class="status active-status">
+                                        Active
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <button class="view-btn">
+                                        View
+                                    </button>
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>
+                                    <div class="supplier-cell">
+
+                                        <div class="supplier-avatar red-avatar">
+                                            VT
+                                        </div>
+
+                                        <div>
+                                            <strong>VisionTech</strong>
+                                            <span>visiontech@example.com</span>
+                                        </div>
+
+                                    </div>
+                                </td>
+
+                                <td>Web Cameras</td>
+
+                                <td>128</td>
+
+                                <td><strong>68%</strong></td>
+
+                                <td>⭐ 3.9</td>
+
+                                <td>
+                                    <span class="status risk-status">
+                                        At Risk
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <button class="view-btn">
+                                        View
+                                    </button>
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+</div>
+
+
+<script>
+    lucide.createIcons();
+</script>
+
 </body>
 </html>

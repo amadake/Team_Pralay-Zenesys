@@ -1,184 +1,679 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Supply AI | Demand Forecast</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
+
+    <title>Supply AI - Demand Forecast</title>
+
+    <link rel="stylesheet" href="forecast.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
     <script src="https://unpkg.com/lucide@latest"></script>
+
 </head>
-<body class="flex h-screen overflow-hidden bg-slate-50 font-['Inter']">
+
+
+<body>
+
+<div class="dashboard-wrapper">
+
 
     <!-- SIDEBAR -->
-    <aside class="w-64 bg-[#0B132B] text-slate-300 flex flex-col justify-between hidden md:flex border-r border-slate-800">
-        <div>
-            <div class="p-6 flex items-center space-x-3">
-                <div class="bg-indigo-600 p-2 rounded-lg text-white font-bold flex items-center justify-center">
-                    <i data-lucide="box"></i>
-                </div>
-                <div>
-                    <h1 class="text-white font-bold tracking-wide text-base">SUPPLY AI</h1>
-                    <p class="text-xs text-slate-400">Smarter Forecasting</p>
-                </div>
+
+    <aside class="sidebar">
+
+        <div class="sidebar-brand">
+
+            <div class="logo-container">
+
+                <i data-lucide="box"></i>
+
             </div>
 
-            <nav class="mt-4 px-3 space-y-1">
-                <a href="index.html" class="flex items-center px-4 py-3 text-sm font-medium rounded-lg text-slate-400 hover:bg-slate-800/60 hover:text-white transition">
-                    <i data-lucide="layout-dashboard" class="mr-3 w-5 h-5"></i> Dashboard
-                </a>
-                <a href="order.html" class="flex items-center px-4 py-3 text-sm font-medium rounded-lg text-slate-400 hover:bg-slate-800/60 hover:text-white transition">
-                    <i data-lucide="shopping-cart" class="mr-3 w-5 h-5"></i> Orders
-                </a>
-                <a href="inventory.html" class="flex items-center px-4 py-3 text-sm font-medium rounded-lg text-slate-400 hover:bg-slate-800/60 hover:text-white transition">
-                    <i data-lucide="package" class="mr-3 w-5 h-5"></i> Inventory
-                </a>
-                <a href="forecast.html" class="flex items-center px-4 py-3 text-sm font-medium rounded-lg bg-indigo-600 text-white shadow-md transition">
-                    <i data-lucide="trending-up" class="mr-3 w-5 h-5"></i> Demand Forecast
-                </a>
-                <a href="shipment.html" class="flex items-center px-4 py-3 text-sm font-medium rounded-lg text-slate-400 hover:bg-slate-800/60 hover:text-white transition">
-                    <i data-lucide="truck" class="mr-3 w-5 h-5"></i> Shipments
-                </a>
-                <a href="suppliers.html" class="flex items-center px-4 py-3 text-sm font-medium rounded-lg text-slate-400 hover:bg-slate-800/60 hover:text-white transition">
-                    <i data-lucide="users" class="mr-3 w-5 h-5"></i> Suppliers
-                </a>
-                <a href="reports.html" class="flex items-center px-4 py-3 text-sm font-medium rounded-lg text-slate-400 hover:bg-slate-800/60 hover:text-white transition">
-                    <i data-lucide="file-text" class="mr-3 w-5 h-5"></i> Reports
-                </a>
-            </nav>
+            <div>
+
+                <span class="main-logo">
+                    SUPPLY AI
+                </span>
+
+                <span class="sub-logo">
+                    Smarter Forecasting,<br>
+                    Stronger Fulfillment
+                </span>
+
+            </div>
+
         </div>
 
-        <div class="p-4 border-t border-slate-800">
-            <a href="#" class="flex items-center px-4 py-2.5 text-sm font-medium rounded-lg text-slate-400 hover:bg-slate-800/60 hover:text-white transition">
-                <i data-lucide="settings" class="mr-3 w-5 h-5"></i> Settings
+
+        <nav class="sidebar-nav">
+
+            <a href="index.html" class="nav-item">
+
+                <i data-lucide="layout-dashboard"></i>
+
+                <span>Dashboard</span>
+
             </a>
-            <a href="#" class="flex items-center px-4 py-2.5 text-sm font-medium rounded-lg text-red-400 hover:bg-slate-800/60 hover:text-red-300 transition">
-                <i data-lucide="log-out" class="mr-3 w-5 h-5"></i> Logout
+
+
+            <a href="order.html" class="nav-item">
+
+                <i data-lucide="clipboard-list"></i>
+
+                <span>Orders</span>
+
             </a>
+
+
+            <a href="inventory.html" class="nav-item">
+
+                <i data-lucide="package"></i>
+
+                <span>Inventory</span>
+
+            </a>
+
+
+            <a href="forecast.html" class="nav-item active">
+
+                <i data-lucide="trending-up"></i>
+
+                <span>Demand Forecast</span>
+
+            </a>
+
+
+            <a href="shipment.html" class="nav-item">
+
+                <i data-lucide="truck"></i>
+
+                <span>Shipments</span>
+
+            </a>
+
+
+            <a href="suppliers.html" class="nav-item">
+
+                <i data-lucide="users"></i>
+
+                <span>Suppliers</span>
+
+            </a>
+
+
+            <a href="reports.html" class="nav-item">
+
+                <i data-lucide="file-bar-chart"></i>
+
+                <span>Reports</span>
+
+            </a>
+
+
+            <a href="recommendations.html" class="nav-item">
+
+                <i data-lucide="sparkles"></i>
+
+                <span>AI Recommendations</span>
+
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <a href="#" class="nav-item">
+
+                <i data-lucide="settings"></i>
+
+                <span>Settings</span>
+
+            </a>
+
+
+            <a href="#" class="nav-item">
+
+                <i data-lucide="log-out"></i>
+
+                <span>Logout</span>
+
+            </a>
+
         </div>
+
     </aside>
 
-    <!-- MAIN CONTENT -->
-    <div class="flex-1 flex flex-col overflow-hidden">
-        
-        <!-- TOP HEADER -->
-        <header class="h-20 bg-white border-b border-slate-200 flex items-center justify-between px-8">
-            <div class="relative w-96">
-                <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-slate-400">
-                    <i data-lucide="search" class="w-4 h-4"></i>
-                </span>
-                <input type="text" placeholder="Search demands, products, suppliers..." class="w-full pl-10 pr-4 py-2 bg-slate-50 border border-slate-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500/20">
+
+    <!-- MAIN -->
+
+    <main class="main-container">
+
+
+        <!-- HEADER -->
+
+        <header class="top-header">
+
+            <div class="search-container">
+
+                <i data-lucide="search"></i>
+
+                <input
+                    type="text"
+                    placeholder="Search products, forecasts..."
+                >
+
             </div>
 
-            <div class="flex items-center space-x-6">
-                <span class="text-sm font-medium text-slate-500">Aug 24, 2024</span>
-                <button class="relative text-slate-500 hover:text-slate-700">
-                    <i data-lucide="bell" class="w-5 h-5"></i>
-                    <span class="absolute top-0 right-0 w-2 h-2 bg-red-500 rounded-full"></span>
-                </button>
-                <div class="flex items-center space-x-3 border-l pl-6 border-slate-200">
-                    <div class="w-10 h-10 rounded-full bg-indigo-600 text-white flex items-center justify-center font-semibold text-sm">AR</div>
-                    <div>
-                        <p class="text-sm font-semibold text-slate-800 leading-none">Alex Rivera</p>
-                        <p class="text-xs text-slate-500 mt-1">Operations Head</p>
-                    </div>
+
+            <div class="header-right">
+
+                <span class="date">
+                    Aug 24, 2024
+                </span>
+
+
+                <div class="notification-icon">
+
+                    <i data-lucide="bell"></i>
+
+                    <span class="notif-badge">
+                        3
+                    </span>
+
                 </div>
+
+
+                <div class="user-profile">
+
+                    <div class="avatar">
+                        AR
+                    </div>
+
+                    <div class="user-info">
+
+                        <span class="name">
+                            Alex Rivera
+                        </span>
+
+                        <span class="role">
+                            Operations Head
+                        </span>
+
+                    </div>
+
+                </div>
+
             </div>
+
         </header>
 
-        <!-- DASHBOARD SCROLLABLE AREA -->
-        <main class="flex-1 overflow-y-auto p-8">
-            
-            <!-- HEADER SECTION -->
-            <div class="flex flex-col md:flex-row md:items-center justify-between pb-6 border-b border-slate-200 mb-8">
+
+        <!-- CONTENT -->
+
+        <div class="content-body">
+
+
+            <div class="page-heading">
+
                 <div>
-                    <h2 class="text-2xl font-bold text-slate-900">Demand Forecast</h2>
-                    <p class="text-sm text-slate-500 mt-1">AI-driven predictive analytics for optimal stock management.</p>
+
+                    <h1>
+                        Demand Forecast
+                    </h1>
+
+                    <p>
+                        AI-powered demand prediction and inventory planning
+                    </p>
+
                 </div>
-                <div class="flex items-center space-x-3 mt-4 md:mt-0">
-                    <select class="bg-white border border-slate-300 text-slate-700 text-sm rounded-lg px-4 py-2 focus:outline-none">
-                        <option>Next 90 Days</option>
-                        <option>Next 30 Days</option>
-                        <option>1 Year Horizon</option>
-                    </select>
-                    <button class="bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-medium px-4 py-2 rounded-lg shadow-sm transition flex items-center space-x-2">
-                        <i data-lucide="download" class="w-4 h-4"></i> <span>Export Report</span>
-                    </button>
-                </div>
+
+
+                <select class="period-filter">
+
+                    <option>Next 7 Days</option>
+
+                    <option>Next 30 Days</option>
+
+                    <option>Next 90 Days</option>
+
+                </select>
+
             </div>
 
-            <!-- METRICS ROW -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-xs">
-                    <div class="flex items-center justify-between text-slate-500 mb-2">
-                        <span class="text-sm font-medium">Forecasted Demand</span>
-                        <span class="p-2 bg-indigo-50 text-indigo-600 rounded-lg"><i data-lucide="shopping-cart" class="w-5 h-5"></i></span>
+
+            <!-- KPI -->
+
+            <div class="kpi-grid">
+
+
+                <div class="kpi-card">
+
+                    <div class="kpi-icon blue">
+
+                        <i data-lucide="trending-up"></i>
+
                     </div>
-                    <div class="text-2xl font-bold text-slate-900">12,500 <span class="text-xs text-slate-400 font-normal">Units</span></div>
-                    <p class="text-xs text-emerald-600 mt-2 font-medium">↑ 18.7% vs. Prev. period</p>
+
+                    <div class="kpi-data">
+
+                        <span class="label">
+                            Forecast Accuracy
+                        </span>
+
+                        <span class="value">
+                            92.4%
+                        </span>
+
+                        <span class="trend up">
+                            ↑ 4.2% this month
+                        </span>
+
+                    </div>
+
                 </div>
 
-                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-xs">
-                    <div class="flex items-center justify-between text-slate-500 mb-2">
-                        <span class="text-sm font-medium">Predicted Accuracy</span>
-                        <span class="p-2 bg-emerald-50 text-emerald-600 rounded-lg"><i data-lucide="target" class="w-5 h-5"></i></span>
+
+                <div class="kpi-card">
+
+                    <div class="kpi-icon green">
+
+                        <i data-lucide="package-check"></i>
+
                     </div>
-                    <div class="text-2xl font-bold text-slate-900">94.2%</div>
-                    <p class="text-xs text-slate-500 mt-2 font-medium">Confidence Level: <span class="text-emerald-600 font-semibold">High</span></p>
+
+                    <div class="kpi-data">
+
+                        <span class="label">
+                            Predicted Demand
+                        </span>
+
+                        <span class="value">
+                            8,420
+                        </span>
+
+                        <span class="trend up">
+                            ↑ 8.6% next week
+                        </span>
+
+                    </div>
+
                 </div>
 
-                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-xs">
-                    <div class="flex items-center justify-between text-slate-500 mb-2">
-                        <span class="text-sm font-medium">Stockout Risk</span>
-                        <span class="p-2 bg-amber-50 text-amber-600 rounded-lg"><i data-lucide="alert-triangle" class="w-5 h-5"></i></span>
+
+                <div class="kpi-card">
+
+                    <div class="kpi-icon orange">
+
+                        <i data-lucide="alert-triangle"></i>
+
                     </div>
-                    <div class="text-2xl font-bold text-slate-900">5 <span class="text-sm font-normal text-slate-500">Products</span></div>
-                    <p class="text-xs text-amber-600 mt-2 font-medium">Risk: 2 High, 3 Low</p>
+
+                    <div class="kpi-data">
+
+                        <span class="label">
+                            Stockout Risk
+                        </span>
+
+                        <span class="value">
+                            7
+                        </span>
+
+                        <span class="trend warning">
+                            3 critical products
+                        </span>
+
+                    </div>
+
                 </div>
 
-                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-xs">
-                    <div class="flex items-center justify-between text-slate-500 mb-2">
-                        <span class="text-sm font-medium">Reorder Volume</span>
-                        <span class="p-2 bg-purple-50 text-purple-600 rounded-lg"><i data-lucide="package-plus" class="w-5 h-5"></i></span>
+
+                <div class="kpi-card">
+
+                    <div class="kpi-icon purple">
+
+                        <i data-lucide="sparkles"></i>
+
                     </div>
-                    <div class="text-2xl font-bold text-slate-900">4,300 <span class="text-xs text-slate-400 font-normal">Units</span></div>
-                    <p class="text-xs text-slate-500 mt-2 font-medium">Total Suggested Replenishment</p>
+
+                    <div class="kpi-data">
+
+                        <span class="label">
+                            AI Recommendations
+                        </span>
+
+                        <span class="value">
+                            12
+                        </span>
+
+                        <span class="trend up">
+                            Ready for action
+                        </span>
+
+                    </div>
+
                 </div>
+
             </div>
 
-            <!-- ANALYTICS & TABLES -->
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-xs lg:col-span-2">
-                    <h3 class="text-base font-bold text-slate-900 mb-4">Comparison of Sales and Forecast</h3>
-                    <div class="h-64 flex items-center justify-center bg-slate-50 border border-dashed border-slate-200 rounded-xl text-slate-400 text-sm">
-                        [ Chart.js Integrated Canvas Area ]
+
+            <!-- CHART -->
+
+            <div class="card forecast-card">
+
+                <div class="card-header">
+
+                    <div class="title-with-icon">
+
+                        <i
+                            data-lucide="bar-chart-3"
+                            class="blue-icon">
+                        </i>
+
+                        <h3>
+                            Demand Forecast
+                        </h3>
+
                     </div>
+
+                    <span class="forecast-info">
+                        AI Prediction
+                    </span>
+
                 </div>
 
-                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-xs flex flex-col justify-between">
-                    <div>
-                        <h3 class="text-base font-bold text-slate-900 mb-4">Top Forecasted Products</h3>
-                        <div class="space-y-4">
-                            <div class="flex items-center justify-between pb-3 border-b border-slate-100 text-sm">
-                                <div><p class="font-semibold text-slate-800">Laptop Pro X</p><p class="text-xs text-slate-400">12,500 units</p></div>
-                                <span class="px-2.5 py-1 bg-indigo-50 text-indigo-600 text-xs font-semibold rounded-lg">Order 150</span>
-                            </div>
-                            <div class="flex items-center justify-between pb-3 border-b border-slate-100 text-sm">
-                                <div><p class="font-semibold text-slate-800">Wireless Mouse</p><p class="text-xs text-slate-400">4,300 units</p></div>
-                                <span class="px-2.5 py-1 bg-emerald-50 text-emerald-600 text-xs font-semibold rounded-lg">Safe</span>
-                            </div>
+
+                <div class="chart-container">
+
+                    <canvas id="forecastChart"></canvas>
+
+                </div>
+
+            </div>
+
+
+            <!-- LOWER GRID -->
+
+            <div class="bottom-grid">
+
+
+                <!-- PRODUCTS -->
+
+                <div class="card">
+
+                    <div class="card-header">
+
+                        <div class="title-with-icon">
+
+                            <i
+                                data-lucide="package"
+                                class="blue-icon">
+                            </i>
+
+                            <h3>
+                                Product Forecast
+                            </h3>
+
                         </div>
+
                     </div>
+
+
+                    <div class="product-row">
+
+                        <div>
+                            <strong>Wireless Mouse</strong>
+                            <span>Expected demand: 420</span>
+                        </div>
+
+                        <div class="forecast-up">
+                            +18%
+                        </div>
+
+                    </div>
+
+
+                    <div class="product-row">
+
+                        <div>
+                            <strong>Mechanical Keyboard</strong>
+                            <span>Expected demand: 315</span>
+                        </div>
+
+                        <div class="forecast-up">
+                            +32%
+                        </div>
+
+                    </div>
+
+
+                    <div class="product-row">
+
+                        <div>
+                            <strong>USB-C Cable</strong>
+                            <span>Expected demand: 680</span>
+                        </div>
+
+                        <div class="forecast-up">
+                            +12%
+                        </div>
+
+                    </div>
+
+
+                    <div class="product-row">
+
+                        <div>
+                            <strong>Laptop Stand</strong>
+                            <span>Expected demand: 190</span>
+                        </div>
+
+                        <div class="forecast-down">
+                            -5%
+                        </div>
+
+                    </div>
+
                 </div>
+
+
+                <!-- AI INSIGHTS -->
+
+                <div class="card">
+
+                    <div class="card-header">
+
+                        <div class="title-with-icon">
+
+                            <i
+                                data-lucide="bot"
+                                class="purple-icon">
+                            </i>
+
+                            <h3>
+                                AI Forecast Insights
+                            </h3>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="insight purple-insight">
+
+                        <i data-lucide="sparkles"></i>
+
+                        <div>
+
+                            <strong>
+                                Keyboard demand rising
+                            </strong>
+
+                            <p>
+                                Demand is expected to increase by 32% next week.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="insight orange-insight">
+
+                        <i data-lucide="alert-triangle"></i>
+
+                        <div>
+
+                            <strong>
+                                Stockout warning
+                            </strong>
+
+                            <p>
+                                Wireless Mouse may run out in 4 days.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="insight green-insight">
+
+                        <i data-lucide="check-circle"></i>
+
+                        <div>
+
+                            <strong>
+                                Healthy inventory
+                            </strong>
+
+                            <p>
+                                12 products have sufficient stock levels.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
             </div>
 
-        </main>
-    </div>
+        </div>
 
-    <script>
-        lucide.createIcons();
-    </script>
+    </main>
+
+</div>
+
+
+<script>
+
+const ctx =
+    document.getElementById('forecastChart');
+
+new Chart(ctx, {
+
+    type: 'line',
+
+    data: {
+
+        labels: [
+            'Mon',
+            'Tue',
+            'Wed',
+            'Thu',
+            'Fri',
+            'Sat',
+            'Sun'
+        ],
+
+        datasets: [
+
+            {
+                label: 'Actual Demand',
+
+                data: [
+                    820,
+                    910,
+                    880,
+                    1020,
+                    1100,
+                    1050,
+                    1120
+                ],
+
+                borderWidth: 3,
+
+                tension: 0.4,
+
+                fill: false
+            },
+
+            {
+                label: 'AI Forecast',
+
+                data: [
+                    850,
+                    930,
+                    940,
+                    1050,
+                    1150,
+                    1210,
+                    1280
+                ],
+
+                borderWidth: 3,
+
+                borderDash: [6,6],
+
+                tension: 0.4,
+
+                fill: false
+            }
+
+        ]
+
+    },
+
+    options: {
+
+        responsive: true,
+
+        maintainAspectRatio: false,
+
+        plugins: {
+
+            legend: {
+                position: 'top'
+            }
+
+        },
+
+        scales: {
+
+            y: {
+                beginAtZero: false
+            }
+
+        }
+
+    }
+
+});
+
+
+lucide.createIcons();
+
+</script>
+
 </body>
+
 </html>

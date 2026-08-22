@@ -3,190 +3,270 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shipment Tracking | Supply AI</title>
+    <title>Supply AI - Shipment Tracking</title>
+
     <link rel="stylesheet" href="shipment.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
+
 <body>
 
-    <div class="app-container">
-        <!-- SIDEBAR (Same as Dashboard) -->
-        <aside class="sidebar">
-            <div class="sidebar-header">
-                <div class="logo-box"><i data-lucide="box"></i></div>
+<div class="dashboard-wrapper">
+
+    <!-- ================= SIDEBAR (Same as Suppliers) ================= -->
+    <aside class="sidebar">
+        <div class="sidebar-brand">
+            <div class="logo-container">
+                <i data-lucide="box"></i>
+            </div>
+            <div>
+                <span class="main-logo">SUPPLY AI</span>
+                <span class="sub-logo">
+                    Smarter Forecasting,<br>
+                    Stronger Fulfillment
+                </span>
+            </div>
+        </div>
+
+        <nav class="sidebar-nav">
+            <a href="index.html" class="nav-item">
+                <i data-lucide="layout-dashboard"></i>
+                <span>Dashboard</span>
+            </a>
+            <a href="order.html" class="nav-item">
+                <i data-lucide="clipboard-list"></i>
+                <span>Orders</span>
+            </a>
+            <a href="inventory.html" class="nav-item">
+                <i data-lucide="package"></i>
+                <span>Inventory</span>
+            </a>
+            <a href="Demand_forecast.html" class="nav-item">
+                <i data-lucide="trending-up"></i>
+                <span>Demand Forecast</span>
+            </a>
+            <a href="shipment.html" class="nav-item active">
+                <i data-lucide="truck"></i>
+                <span>Shipments</span>
+            </a>
+            <a href="suppliers.html" class="nav-item">
+                <i data-lucide="users"></i>
+                <span>Suppliers</span>
+            </a>
+            <a href="reports.html" class="nav-item">
+                <i data-lucide="file-bar-chart"></i>
+                <span>Reports</span>
+            </a>
+            <a href="recommendations.html" class="nav-item">
+                <i data-lucide="sparkles"></i>
+                <span>AI Recommendations</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <a href="#" class="nav-item">
+                <i data-lucide="settings"></i>
+                <span>Settings</span>
+            </a>
+            <a href="#" class="nav-item">
+                <i data-lucide="log-out"></i>
+                <span>Logout</span>
+            </a>
+        </div>
+    </aside>
+
+    <!-- ================= MAIN ================= -->
+    <main class="main-container">
+
+        <!-- HEADER (Same as Suppliers) -->
+        <header class="top-header">
+            <div class="search-container">
+                <i data-lucide="search"></i>
+                <input type="text" placeholder="Track Shipment ID, route, or carrier...">
+            </div>
+
+            <div class="header-right">
+                <span class="date">Aug 24, 2024</span>
+                <div class="notification-icon">
+                    <i data-lucide="bell"></i>
+                    <span class="notif-badge">3</span>
+                </div>
+                <div class="user-profile">
+                    <div class="avatar">AR</div>
+                    <div class="user-info">
+                        <span class="name">Alex Rivera</span>
+                        <span class="role">Operations Head</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- CONTENT -->
+        <div class="content-body">
+
+            <!-- PAGE TITLE -->
+            <div class="page-heading">
                 <div>
-                    <span class="logo-text">SUPPLY AI</span>
-                    <p class="logo-sub">Smarter Forecasting</p>
+                    <h1>Shipment Command Center</h1>
+                    <p>Monitoring 142 active shipments across global routes</p>
+                </div>
+                <button class="add-supplier">
+                    <i data-lucide="plus"></i>
+                    New Shipment
+                </button>
+            </div>
+
+            <!-- SHIPMENT STATS (KPI GRID) -->
+            <div class="kpi-grid">
+                <div class="kpi-card">
+                    <div class="kpi-icon light-blue">
+                        <i data-lucide="truck"></i>
+                    </div>
+                    <div class="kpi-data">
+                        <span class="label">In Transit</span>
+                        <span class="value">84</span>
+                        <span class="trend up">Live now</span>
+                    </div>
+                </div>
+
+                <div class="kpi-card">
+                    <div class="kpi-icon light-green">
+                        <i data-lucide="clock"></i>
+                    </div>
+                    <div class="kpi-data">
+                        <span class="label">On-Time Rate</span>
+                        <span class="value">94.2%</span>
+                        <span class="trend up">↑ 0.5%</span>
+                    </div>
+                </div>
+
+                <div class="kpi-card">
+                    <div class="kpi-icon light-orange">
+                        <i data-lucide="alert-triangle"></i>
+                    </div>
+                    <div class="kpi-data">
+                        <span class="label">Delayed</span>
+                        <span class="value">12</span>
+                        <span class="trend warning">Action required</span>
+                    </div>
+                </div>
+
+                <div class="kpi-card">
+                    <div class="kpi-icon light-purple">
+                        <i data-lucide="zap"></i>
+                    </div>
+                    <div class="kpi-data">
+                        <span class="label">AI Risk Alerts</span>
+                        <span class="value">5</span>
+                        <span class="trend warning">High Risk</span>
+                    </div>
                 </div>
             </div>
-            <nav class="nav-menu">
-                <a href="index.html" class="nav-link"><i data-lucide="layout-dashboard"></i> Dashboard</a>
-                <a href="order.html" class="nav-link"><i data-lucide="shopping-cart"></i> Orders</a>
-                <a href="inventory.html" class="nav-link"><i data-lucide="package"></i> Inventory</a>
-                <a href="shipment.html" class="nav-link active"><i data-lucide="truck"></i> Shipments</a>
-                <a href="suppliers.html" class="nav-link"><i data-lucide="users"></i> Suppliers</a>
-                <a href="recommendations.html" class="nav-link"><i data-lucide="sparkles"></i> AI Recommendations</a>
-            </nav>
-            <div class="sidebar-footer">
-                <a href="#" class="nav-link"><i data-lucide="settings"></i> Settings</a>
-            </div>
-        </aside>
 
-        <!-- MAIN CONTENT -->
-        <main class="main-content">
-            <header class="top-header">
-                <div class="search-bar">
-                    <i data-lucide="search"></i>
-                    <input type="text" placeholder="Track Shipment ID...">
-                </div>
-                <div class="header-actions">
-                    <span class="header-date">Aug 24, 2024</span>
-                    <div class="icon-btn"><i data-lucide="bell"></i></div>
-                    <div class="user-pill">
-                        <div class="avatar">AR</div>
-                        <span class="u-name">Alex Rivera</span>
+            <!-- MAIN SHIPMENT CONTENT -->
+            <div class="main-grid">
+                
+                <!-- LEFT: LIVE TRACKING FOCUS -->
+                <div class="card">
+                    <div class="card-header">
+                        <div class="title-with-icon">
+                            <i data-lucide="map-pin" class="header-icon-blue"></i>
+                            <h3>Live Tracking: #SHP-99021</h3>
+                        </div>
+                        <span class="status active-status">In Transit</span>
                     </div>
-                </div>
-            </header>
 
-            <div class="dashboard-body">
-                <!-- HERO BANNER -->
-                <div class="hero-banner">
-                    <div class="hero-text">
-                        <h1>Shipment Command Center</h1>
-                        <p>Monitoring 142 active shipments across global routes.</p>
-                    </div>
-                    <div class="hero-icon"><i data-lucide="map"></i></div>
-                </div>
-
-                <!-- SHIPMENT STATS -->
-                <div class="stats-grid">
-                    <div class="stat-card">
-                        <div class="stat-info">
-                            <span class="label">In Transit</span>
-                            <h3>84</h3>
-                            <span class="trend pos">Live now</span>
+                    <div class="tracking-timeline">
+                        <div class="timeline-item completed">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <h4>Order Picked Up</h4>
+                                <p>Warehouse A, Shenzhen • Aug 20, 10:00 AM</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-info">
-                            <span class="label">On-Time Rate</span>
-                            <h3>94.2%</h3>
-                            <span class="trend pos">↑ 0.5%</span>
+                        <div class="timeline-item completed">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <h4>Customs Cleared</h4>
+                                <p>Port of Hong Kong • Aug 22, 02:30 PM</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-info">
-                            <span class="label">Delayed</span>
-                            <h3>12</h3>
-                            <span class="trend neg">Action required</span>
+                        <div class="timeline-item active">
+                            <div class="timeline-marker pulse"></div>
+                            <div class="timeline-content">
+                                <h4>International Transit</h4>
+                                <p>In Air - Flight HK882 • ETA: Mumbai Hub</p>
+                                <div class="mini-map-placeholder">
+                                    <i data-lucide="plane" class="plane-anim"></i>
+                                    <span>Live GPS: 22.3193° N, 114.1694° E</span>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-info">
-                            <span class="label">AI Risk Alerts</span>
-                            <h3>5</h3>
-                            <span class="trend critical">High Risk</span>
+                        <div class="timeline-item pending">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <h4>Local Delivery</h4>
+                                <p>Expected Bengaluru Hub • Aug 25</p>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="shipment-layout">
-                    <!-- LEFT: LIVE TRACKING FOCUS -->
-                    <div class="card tracking-focus">
-                        <div class="card-header">
-                            <div>
-                                <span class="badge-outline">#SHP-99021</span>
-                                <h3 style="margin-top: 10px;">Wireless Mouse - Bulk Order</h3>
-                            </div>
-                            <span class="status-pill transit">In Transit</span>
+                <!-- RIGHT: SHIPMENT LOG TABLE -->
+                <div class="card">
+                    <div class="card-header">
+                        <div class="title-with-icon">
+                            <i data-lucide="list" class="header-icon-purple"></i>
+                            <h3>Active Fleet</h3>
                         </div>
-
-                        <div class="tracking-timeline">
-                            <div class="timeline-item completed">
-                                <div class="timeline-marker"></div>
-                                <div class="timeline-content">
-                                    <h4>Order Picked Up</h4>
-                                    <p>Warehouse A, Shenzhen • Aug 20, 10:00 AM</p>
-                                </div>
-                            </div>
-                            <div class="timeline-item completed">
-                                <div class="timeline-marker"></div>
-                                <div class="timeline-content">
-                                    <h4>Customs Cleared</h4>
-                                    <p>Port of Hong Kong • Aug 22, 02:30 PM</p>
-                                </div>
-                            </div>
-                            <div class="timeline-item active">
-                                <div class="timeline-marker pulse"></div>
-                                <div class="timeline-content">
-                                    <h4>International Transit</h4>
-                                    <p>In Air - Flight HK882 • ETA: Mumbai Hub</p>
-                                    <div class="mini-map-placeholder">
-                                        <i data-lucide="plane" class="plane-anim"></i>
-                                        <span>Live GPS: 22.3193° N, 114.1694° E</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="timeline-item pending">
-                                <div class="timeline-marker"></div>
-                                <div class="timeline-content">
-                                    <h4>Local Delivery</h4>
-                                    <p>Expected Bengaluru Hub • Aug 25</p>
-                                </div>
-                            </div>
-                        </div>
+                        <button class="view-btn">Filter</button>
                     </div>
-
-                    <!-- RIGHT: SHIPMENT LOG TABLE -->
-                    <div class="card shipment-log">
-                        <div class="card-header">
-                            <h3>Active Fleet Overview</h3>
-                            <button class="btn-filter"><i data-lucide="filter"></i> Filter</button>
-                        </div>
-                        <table class="shipment-table">
+                    
+                    <div class="table-wrapper">
+                        <table>
                             <thead>
                                 <tr>
-                                    <th>Shipment ID</th>
+                                    <th>ID</th>
                                     <th>Destination</th>
                                     <th>ETA</th>
-                                    <th>Risk</th>
                                     <th>Status</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr class="clickable-row">
+                                <tr>
                                     <td><strong>#SHP-99021</strong></td>
                                     <td>Bengaluru</td>
                                     <td>Aug 26</td>
-                                    <td><span class="risk-low">Low</span></td>
-                                    <td><span class="status-pill transit">Transit</span></td>
+                                    <td><span class="status active-status">Transit</span></td>
                                 </tr>
-                                <tr class="clickable-row danger-row">
+                                <tr>
                                     <td><strong>#SHP-88120</strong></td>
                                     <td>Pune</td>
                                     <td>Aug 28</td>
-                                    <td><span class="risk-high">High</span></td>
-                                    <td><span class="status-pill delayed">Delayed</span></td>
+                                    <td><span class="status risk-status">Delayed</span></td>
                                 </tr>
-                                <tr class="clickable-row">
+                                <tr>
                                     <td><strong>#SHP-77211</strong></td>
                                     <td>Hyderabad</td>
                                     <td>Aug 24</td>
-                                    <td><span class="risk-low">None</span></td>
-                                    <td><span class="status-pill delivered">Delivered</span></td>
+                                    <td><span class="status active-status">Delivered</span></td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
                 </div>
-            </div>
-        </main>
-    </div>
 
-    <script>
-        lucide.createIcons();
-    </script>
+            </div>
+
+        </div>
+    </main>
+
+</div>
+
+<script>
+    lucide.createIcons();
+</script>
+
 </body>
 </html>
