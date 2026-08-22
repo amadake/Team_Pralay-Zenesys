@@ -604,7 +604,7 @@ input[type="checkbox"] {
   }
 }
 
-@media (max-width: 700px) 
+@media (max-width: 700px) {
   .sidebar {
     display: none;
   }
@@ -630,6 +630,35 @@ input[type="checkbox"] {
     padding: 0 18px 20px;
   }
 
-    .inventory-section {
-        margin: 0 18px 30px;
-    }
+  .inventory-section {
+    margin: 0 18px 25px;
+  }
+
+  .section-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .toolbar {
+    align-items: stretch;
+    flex-direction: column;
+    padding: 0 18px 18px;
+  }
+
+  .search {
+    width: 100%;
+    height: 40px;
+  }
+
+  select,
+  .filter-button {
+    height: 40px;
+  }
+
+  .pagination {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 14px;
+  }
+}

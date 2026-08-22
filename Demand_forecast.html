@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supply AI | Demand Forecast</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="flex h-screen overflow-hidden bg-slate-50 font-['Inter']">
+
+    <!-- SIDEBAR -->
+    <aside class="w-64 bg-[#0B132B] text-slate-300 flex flex-col justify-between hidden md:flex border-r border-slate-800">
+        <div>
+            <div class="p-6 flex items-center space-x-3">
+                <div class="bg-indigo-600 p-2 rounded-lg text-white font-bold flex items-center justify-center">
+                    <i data-lucide="box"></i>
+                </div>
+                <div>
+                    <h1 class="text-white font-bold tracking-wide text-base">SUPPLY AI</h1>
+                    <p class="text-xs text-slate-400">Smarter Forecasting</p>
+                </div>
+            </div>
+
+            <nav class="mt-4 px-3 space-y-1">
+                <a href="index.html" class="flex items-center px-4 py-3 text-sm font-medium rounded-lg text-slate-400 hover:bg-slate-800/60 hover:text-white transition">
+                    <i data-lucide="layout-dashboard" class="mr-3 w-5 h-5"></i> Dashboard
+                </a>
+                <a href="order.html" class="flex items-center px-4 py-3 text-sm font-medium rounded-lg text-slate-400 hover:bg-slate-800/60 hover:text-white transition">
+                    <i data-lucide="shopping-cart" class="mr-3 w-5 h-5"></i> Orders
+                </a>
+                <a href="inventory.html" class="flex items-center px-4 py-3 text-sm font-medium rounded-lg text-slate-400 hover:bg-slate-800/60 hover:text-white transition">
+                    <i data-lucide="package" class="mr-3 w-5 h-5"></i> Inventory
+                </a>
+                <a href="forecast.html" class="flex items-center px-4 py-3 text-sm font-medium rounded-lg bg-indigo-600 text-white shadow-md transition">
+                    <i data-lucide="trending-up" class="mr-3 w-5 h-5"></i> Demand Forecast
+                </a>
+                <a href="shipment.html" class="flex items-center px-4 py-3 text-sm font-medium rounded-lg text-slate-400 hover:bg-slate-800/60 hover:text-white transition">
+                    <i data-lucide="truck" class="mr-3 w-5 h-5"></i> Shipments
+                </a>
+                <a href="suppliers.html" class="flex items-center px-4 py-3 text-sm font-medium rounded-lg text-slate-400 hover:bg-slate-800/60 hover:text-white transition">
+                    <i data-lucide="users" class="mr-3 w-5 h-5"></i> Suppliers
+                </a>
+                <a href="reports.html" class="flex items-center px-4 py-3 text-sm font-medium rounded-lg text-slate-400 hover:bg-slate-800/60 hover:text-white transition">
+                    <i data-lucide="file-text" class="mr-3 w-5 h-5"></i> Reports
+                </a>
+            </nav>
+        </div>
+
+        <div class="p-4 border-t border-slate-800">
+            <a href="#" class="flex items-center px-4 py-2.5 text-sm font-medium rounded-lg text-slate-400 hover:bg-slate-800/60 hover:text-white transition">
+                <i data-lucide="settings" class="mr-3 w-5 h-5"></i> Settings
+            </a>
+            <a href="#" class="flex items-center px-4 py-2.5 text-sm font-medium rounded-lg text-red-400 hover:bg-slate-800/60 hover:text-red-300 transition">
+                <i data-lucide="log-out" class="mr-3 w-5 h-5"></i> Logout
+            </a>
+        </div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <div class="flex-1 flex flex-col overflow-hidden">
+        
+        <!-- TOP HEADER -->
+        <header class="h-20 bg-white border-b border-slate-200 flex items-center justify-between px-8">
+            <div class="relative w-96">
+                <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-slate-400">
+                    <i data-lucide="search" class="w-4 h-4"></i>
+                </span>
+                <input type="text" placeholder="Search demands, products, suppliers..." class="w-full pl-10 pr-4 py-2 bg-slate-50 border border-slate-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500/20">
+            </div>
+
+            <div class="flex items-center space-x-6">
+                <span class="text-sm font-medium text-slate-500">Aug 24, 2024</span>
+                <button class="relative text-slate-500 hover:text-slate-700">
+                    <i data-lucide="bell" class="w-5 h-5"></i>
+                    <span class="absolute top-0 right-0 w-2 h-2 bg-red-500 rounded-full"></span>
+                </button>
+                <div class="flex items-center space-x-3 border-l pl-6 border-slate-200">
+                    <div class="w-10 h-10 rounded-full bg-indigo-600 text-white flex items-center justify-center font-semibold text-sm">AR</div>
+                    <div>
+                        <p class="text-sm font-semibold text-slate-800 leading-none">Alex Rivera</p>
+                        <p class="text-xs text-slate-500 mt-1">Operations Head</p>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- DASHBOARD SCROLLABLE AREA -->
+        <main class="flex-1 overflow-y-auto p-8">
+            
+            <!-- HEADER SECTION -->
+            <div class="flex flex-col md:flex-row md:items-center justify-between pb-6 border-b border-slate-200 mb-8">
+                <div>
+                    <h2 class="text-2xl font-bold text-slate-900">Demand Forecast</h2>
+                    <p class="text-sm text-slate-500 mt-1">AI-driven predictive analytics for optimal stock management.</p>
+                </div>
+                <div class="flex items-center space-x-3 mt-4 md:mt-0">
+                    <select class="bg-white border border-slate-300 text-slate-700 text-sm rounded-lg px-4 py-2 focus:outline-none">
+                        <option>Next 90 Days</option>
+                        <option>Next 30 Days</option>
+                        <option>1 Year Horizon</option>
+                    </select>
+                    <button class="bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-medium px-4 py-2 rounded-lg shadow-sm transition flex items-center space-x-2">
+                        <i data-lucide="download" class="w-4 h-4"></i> <span>Export Report</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- METRICS ROW -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-xs">
+                    <div class="flex items-center justify-between text-slate-500 mb-2">
+                        <span class="text-sm font-medium">Forecasted Demand</span>
+                        <span class="p-2 bg-indigo-50 text-indigo-600 rounded-lg"><i data-lucide="shopping-cart" class="w-5 h-5"></i></span>
+                    </div>
+                    <div class="text-2xl font-bold text-slate-900">12,500 <span class="text-xs text-slate-400 font-normal">Units</span></div>
+                    <p class="text-xs text-emerald-600 mt-2 font-medium">↑ 18.7% vs. Prev. period</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-xs">
+                    <div class="flex items-center justify-between text-slate-500 mb-2">
+                        <span class="text-sm font-medium">Predicted Accuracy</span>
+                        <span class="p-2 bg-emerald-50 text-emerald-600 rounded-lg"><i data-lucide="target" class="w-5 h-5"></i></span>
+                    </div>
+                    <div class="text-2xl font-bold text-slate-900">94.2%</div>
+                    <p class="text-xs text-slate-500 mt-2 font-medium">Confidence Level: <span class="text-emerald-600 font-semibold">High</span></p>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-xs">
+                    <div class="flex items-center justify-between text-slate-500 mb-2">
+                        <span class="text-sm font-medium">Stockout Risk</span>
+                        <span class="p-2 bg-amber-50 text-amber-600 rounded-lg"><i data-lucide="alert-triangle" class="w-5 h-5"></i></span>
+                    </div>
+                    <div class="text-2xl font-bold text-slate-900">5 <span class="text-sm font-normal text-slate-500">Products</span></div>
+                    <p class="text-xs text-amber-600 mt-2 font-medium">Risk: 2 High, 3 Low</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-xs">
+                    <div class="flex items-center justify-between text-slate-500 mb-2">
+                        <span class="text-sm font-medium">Reorder Volume</span>
+                        <span class="p-2 bg-purple-50 text-purple-600 rounded-lg"><i data-lucide="package-plus" class="w-5 h-5"></i></span>
+                    </div>
+                    <div class="text-2xl font-bold text-slate-900">4,300 <span class="text-xs text-slate-400 font-normal">Units</span></div>
+                    <p class="text-xs text-slate-500 mt-2 font-medium">Total Suggested Replenishment</p>
+                </div>
+            </div>
+
+            <!-- ANALYTICS & TABLES -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-xs lg:col-span-2">
+                    <h3 class="text-base font-bold text-slate-900 mb-4">Comparison of Sales and Forecast</h3>
+                    <div class="h-64 flex items-center justify-center bg-slate-50 border border-dashed border-slate-200 rounded-xl text-slate-400 text-sm">
+                        [ Chart.js Integrated Canvas Area ]
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-xs flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-base font-bold text-slate-900 mb-4">Top Forecasted Products</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between pb-3 border-b border-slate-100 text-sm">
+                                <div><p class="font-semibold text-slate-800">Laptop Pro X</p><p class="text-xs text-slate-400">12,500 units</p></div>
+                                <span class="px-2.5 py-1 bg-indigo-50 text-indigo-600 text-xs font-semibold rounded-lg">Order 150</span>
+                            </div>
+                            <div class="flex items-center justify-between pb-3 border-b border-slate-100 text-sm">
+                                <div><p class="font-semibold text-slate-800">Wireless Mouse</p><p class="text-xs text-slate-400">4,300 units</p></div>
+                                <span class="px-2.5 py-1 bg-emerald-50 text-emerald-600 text-xs font-semibold rounded-lg">Safe</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
