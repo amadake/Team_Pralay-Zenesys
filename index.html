@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Supply Chain Copilot | Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <i data-lucide="zap" class="logo-icon"></i>
+                <span class="logo-text">SUPPLY AI</span>
+            </div>
+            <nav class="nav-menu">
+                <a href="#" class="nav-link active" onclick="switchPage('dashboard')">
+                    <i data-lucide="layout-dashboard"></i> Dashboard
+                </a>
+                <a href="#" class="nav-link" onclick="switchPage('inventory')">
+                    <i data-lucide="box"></i> Inventory
+                </a>
+                <a href="#" class="nav-link" onclick="switchPage('simulator')">
+                    <i data-lucide="cpu"></i> What-If Simulator
+                </a>
+                <a href="#" class="nav-link">
+                    <i data-lucide="truck"></i> Shipments
+                </a>
+                <a href="#" class="nav-link">
+                    <i data-lucide="users"></i> Suppliers
+                </a>
+                <a href="#" class="nav-link">
+                    <i data-lucide="sparkles"></i> AI Recommendations
+                </a>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="#" class="nav-link"><i data-lucide="settings"></i> Settings</a>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Top Header -->
+            <header class="top-header">
+                <div class="search-bar">
+                    <i data-lucide="search"></i>
+                    <input type="text" placeholder="Search orders, SKU, or suppliers...">
+                </div>
+                <div class="header-actions">
+                    <div class="date-display" id="currentDate">Aug 24, 2024</div>
+                    <div class="notifications">
+                        <i data-lucide="bell"></i>
+                        <span class="badge"></span>
+                    </div>
+                    <div class="user-profile">
+                        <div class="user-info">
+                            <span class="user-name">Alex Rivera</span>
+                            <span class="user-role">Operations Head</span>
+                        </div>
+                        <div class="avatar">AR</div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Dashboard Section -->
+            <section id="dashboard-page" class="page active">
+                <div class="page-header">
+                    <h1>Supply Chain Overview</h1>
+                    <p>Real-time insights and AI-powered predictions.</p>
+                </div>
+
+                <!-- Stats Grid -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <span class="stat-label">Total Orders</span>
+                        <div class="stat-value">1,284</div>
+                        <span class="stat-trend positive">+12.5% <i data-lucide="trending-up"></i></span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-label">Inventory Value</span>
+                        <div class="stat-value">₹48.6L</div>
+                        <span class="stat-trend positive">+5.2% <i data-lucide="trending-up"></i></span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-label">At-Risk Orders</span>
+                        <div class="stat-value">23</div>
+                        <span class="stat-trend negative">8 increased today</span>
+                    </div>
+                    <div class="stat-card highlight">
+                        <span class="stat-label">Predicted Stockouts</span>
+                        <div class="stat-value">7</div>
+                        <span class="stat-trend">3 critical</span>
+                    </div>
+                </div>
+
+                <div class="dashboard-main-grid">
+                    <!-- Chart Section -->
+                    <div class="chart-container card">
+                        <div class="card-header">
+                            <h3>Demand Forecast</h3>
+                            <div class="chart-controls">
+                                <select>
+                                    <option>Wireless Mouse</option>
+                                    <option>Keyboard</option>
+                                </select>
+                            </div>
+                        </div>
+                        <canvas id="forecastChart"></canvas>
+                    </div>
+
+                    <!-- AI Alerts -->
+                    <div class="alerts-container card">
+                        <div class="card-header">
+                            <h3><i data-lucide="sparkles"></i> AI Alerts</h3>
+                        </div>
+                        <div class="alerts-list">
+                            <div class="alert-item error">
+                                <i data-lucide="alert-circle"></i>
+                                <div>
+                                    <p>Wireless Mouse may stock out in 4 days.</p>
+                                    <span>2 mins ago</span>
+                                </div>
+                            </div>
+                            <div class="alert-item warning">
+                                <i data-lucide="clock"></i>
+                                <div>
+                                    <p>Order #1042: High delay probability.</p>
+                                    <span>1 hour ago</span>
+                                </div>
+                            </div>
+                            <div class="alert-item info">
+                                <i data-lucide="trending-up"></i>
+                                <div>
+                                    <p>Keyboard demand to rise 32% next week.</p>
+                                    <span>3 hours ago</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tables Section -->
+                <div class="inventory-section card">
+                    <div class="card-header">
+                        <h3>Inventory Health</h3>
+                        <button class="btn-text">View Full Report</button>
+                    </div>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Product</th>
+                                <th>SKU</th>
+                                <th>Current Stock</th>
+                                <th>Demand</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Wireless Mouse</td>
+                                <td>WM-001</td>
+                                <td>120</td>
+                                <td>45/day</td>
+                                <td><span class="status-badge critical">Critical</span></td>
+                                <td><button class="btn-primary-sm">Reorder</button></td>
+                            </tr>
+                            <tr>
+                                <td>Mechanical Keyboard</td>
+                                <td>KB-500</td>
+                                <td>450</td>
+                                <td>30/day</td>
+                                <td><span class="status-badge healthy">Healthy</span></td>
+                                <td><button class="btn-primary-sm">Manage</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- What-If Simulator Section -->
+            <section id="simulator-page" class="page">
+                <div class="page-header">
+                    <h1>What-If Simulator</h1>
+                    <p>Simulate supply chain disruptions and market changes.</p>
+                </div>
+                <div class="simulator-grid">
+                    <div class="card simulator-controls">
+                        <div class="control-group">
+                            <label>Demand Change (%)</label>
+                            <input type="range" id="demandRange" min="-50" max="100" value="20">
+                            <div class="range-labels"><span>-50%</span><span id="demandVal">+20%</span><span>+100%</span></div>
+                        </div>
+                        <div class="control-group">
+                            <label>Supplier Delay (Days)</label>
+                            <input type="range" id="delayRange" min="0" max="30" value="5">
+                            <div class="range-labels"><span>0d</span><span id="delayVal">5d</span><span>30d</span></div>
+                        </div>
+                        <button class="btn-primary w-full" onclick="runSimulation()">Run Simulation</button>
+                    </div>
+
+                    <div class="card simulator-results">
+                        <h3>Simulation Result</h3>
+                        <div class="result-metrics">
+                            <div class="res-box">
+                                <span>Shortage Risk</span>
+                                <strong id="resRisk" class="text-red">HIGH</strong>
+                            </div>
+                            <div class="res-box">
+                                <span>Expected Shortage</span>
+                                <strong id="resShortage">340 Units</strong>
+                            </div>
+                            <div class="res-box">
+                                <span>Additional Cost</span>
+                                <strong id="resCost">₹2.8L</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+    </script>
+</body>
+</html>
