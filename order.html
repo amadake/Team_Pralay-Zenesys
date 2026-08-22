@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supply AI - Orders</title>
+    <link rel="stylesheet" href="order.css">
+</head>
+<body>
+
+<div class="container">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="logo">
+            <div class="logo-icon">◇</div>
+            <div>
+                <h2>SUPPLY AI</h2>
+                <p>Smarter Forecasting</p>
+            </div>
+        </div>
+
+        <nav>
+            <a href="dashboard.html">▦ <span>Dashboard</span></a>
+            <a href="#" class="active">🛒 <span>Orders</span></a>
+            <a href="#">⬡ <span>Inventory</span></a>
+            <a href="#">↗ <span>Demand Forecast</span></a>
+            <a href="#">🚚 <span>Shipments</span></a>
+            <a href="#">♧ <span>Suppliers</span></a>
+            <a href="#">▤ <span>Reports</span></a>
+            <a href="#">✧ <span>AI Recommendations</span></a>
+        </nav>
+
+        <div class="bottom-menu">
+            <a href="#">⚙ <span>Settings</span></a>
+            <a href="#">↪ <span>Logout</span></a>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main">
+
+        <header>
+            <div class="search">
+                🔍
+                <input type="text" placeholder="Search orders, products, suppliers...">
+            </div>
+
+            <div class="profile">
+                <span>Aug 24, 2024</span>
+                🔔
+                <div class="avatar">AR</div>
+                <div>
+                    <b>Alex Rivera</b>
+                    <small>Operations Head</small>
+                </div>
+            </div>
+        </header>
+
+        <section class="content">
+
+            <h1>Orders</h1>
+            <p class="subtitle">Manage and track your supply chain orders</p>
+
+            <!-- Statistics -->
+            <div class="stats">
+
+                <div class="card">
+                    <div class="card-icon blue">🛒</div>
+                    <div>
+                        <p>Total Orders</p>
+                        <h2>1,284</h2>
+                        <span class="green">↑ 12.5% vs. last week</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon orange">⏳</div>
+                    <div>
+                        <p>Pending Orders</p>
+                        <h2>186</h2>
+                        <span class="orange-text">24 need attention</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon green">✓</div>
+                    <div>
+                        <p>Completed</p>
+                        <h2>1,075</h2>
+                        <span class="green">83.7% completion rate</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon red">⚠</div>
+                    <div>
+                        <p>At-Risk Orders</p>
+                        <h2>23</h2>
+                        <span class="red-text">8 increased today</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Orders Table -->
+            <div class="orders-section">
+
+                <div class="table-header">
+                    <h2>Recent Orders</h2>
+
+                    <div>
+                        <select>
+                            <option>All Status</option>
+                            <option>Pending</option>
+                            <option>Processing</option>
+                            <option>Shipped</option>
+                            <option>Delivered</option>
+                        </select>
+
+                        <button class="add-btn">+ New Order</button>
+                    </div>
+                </div>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Product</th>
+                            <th>Supplier</th>
+                            <th>Quantity</th>
+                            <th>Order Date</th>
+                            <th>Expected Delivery</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+                            <td><b>#1042</b></td>
+                            <td>Wireless Mouse</td>
+                            <td>TechSupply Ltd.</td>
+                            <td>250</td>
+                            <td>Aug 20, 2024</td>
+                            <td>Aug 27, 2024</td>
+                            <td><span class="status pending">Pending</span></td>
+                            <td><button class="view">View</button></td>
+                        </tr>
+
+                        <tr>
+                            <td><b>#1041</b></td>
+                            <td>Mechanical Keyboard</td>
+                            <td>KeyTech Corp.</td>
+                            <td>120</td>
+                            <td>Aug 19, 2024</td>
+                            <td>Aug 25, 2024</td>
+                            <td><span class="status processing">Processing</span></td>
+                            <td><button class="view">View</button></td>
+                        </tr>
+
+                        <tr>
+                            <td><b>#1040</b></td>
+                            <td>USB-C Cable</td>
+                            <td>ConnectPro</td>
+                            <td>500</td>
+                            <td>Aug 18, 2024</td>
+                            <td>Aug 24, 2024</td>
+                            <td><span class="status shipped">Shipped</span></td>
+                            <td><button class="view">View</button></td>
+                        </tr>
+
+                        <tr>
+                            <td><b>#1039</b></td>
+                            <td>Laptop Stand</td>
+                            <td>OfficeGear</td>
+                            <td>80</td>
+                            <td>Aug 17, 2024</td>
+                            <td>Aug 23, 2024</td>
+                            <td><span class="status delivered">Delivered</span></td>
+                            <td><button class="view">View</button></td>
+                        </tr>
+
+                        <tr>
+                            <td><b>#1038</b></td>
+                            <td>Web Camera</td>
+                            <td>VisionTech</td>
+                            <td>150</td>
+                            <td>Aug 16, 2024</td>
+                            <td>Aug 26, 2024</td>
+                            <td><span class="status risk">At Risk</span></td>
+                            <td><button class="view">View</button></td>
+                        </tr>
+
+                    </tbody>
+                </table>
+
+            </div>
+
+        </section>
+    </main>
+
+</div>
+
+<script src="orders.js"></script>
+</body>
+</html>

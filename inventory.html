@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Inventory Dashboard</title>
+  " />
+</head>
+<body>
+
+  <div class="app">
+
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-icon">S</div>
+        <div>
+          <h2>SUPPLY AI</h2>
+          <span>Supply chain platform</span>
+        </div>
+      </div>
+
+      <nav>
+        <a href="#" class="nav-link">
+          <span>⌂</span> Dashboard
+        </a>
+
+        <a href="#" class="nav-link active">
+          <span>▣</span> Inventory
+        </a>
+
+        <a href="#" class="nav-link">
+          <span>◫</span> Orders
+        </a>
+
+        <a href="#" class="nav-link">
+          <span>♧</span> Suppliers
+        </a>
+
+        <a href="#" class="nav-link">
+          <span>◒</span> Analytics
+        </a>
+
+        <a href="#" class="nav-link">
+          <span>⚙</span> Settings
+        </a>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <div class="help-box">
+          <strong>Need help?</strong>
+          <p>Contact our support team.</p>
+          <button>Get support</button>
+        </div>
+
+        <div class="profile">
+          <div class="avatar">AK</div>
+          <div>
+            <strong>Admin User</strong>
+            <span>Administrator</span>
+          </div>
+          <b>⋮</b>
+        </div>
+      </div>
+    </aside>
+
+    <main class="content">
+
+      <header class="topbar">
+        <div class="breadcrumb">
+          Supply Chain <span>/</span> Inventory
+        </div>
+
+        <div class="top-actions">
+          <span class="notification">♢</span>
+          <div class="small-avatar">AK</div>
+          <span>Admin User</span>
+          <span>⌄</span>
+        </div>
+      </header>
+
+      <section class="page-header">
+        <div>
+          <p class="label">SUPPLY CHAIN</p>
+          <h1>Inventory</h1>
+          <p class="description">
+            Manage your products, stock levels, and inventory value.
+          </p>
+        </div>
+
+        <button class="add-button">+ Add product</button>
+      </section>
+
+      <section class="stats">
+
+        <div class="stat-card">
+          <div class="stat-icon purple">▣</div>
+          <div>
+            <p>Total products</p>
+            <h2>1,284</h2>
+            <small class="green">↑ 8.4% this month</small>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon blue">▤</div>
+          <div>
+            <p>Total stock units</p>
+            <h2>48,642</h2>
+            <small class="green">↑ 12.6% this month</small>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon orange">!</div>
+          <div>
+            <p>Low stock items</p>
+            <h2>23</h2>
+            <small class="orange-text">Need attention</small>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon red">×</div>
+          <div>
+            <p>Out of stock</p>
+            <h2>7</h2>
+            <small class="red-text">Require restocking</small>
+          </div>
+        </div>
+
+      </section>
+
+      <section class="inventory-section">
+
+        <div class="section-heading">
+          <div>
+            <h2>All products</h2>
+            <p>View and manage your inventory products.</p>
+          </div>
+
+          <button class="export-button">⇩ Export</button>
+        </div>
+
+        <div class="toolbar">
+          <div class="search">
+            <span>⌕</span>
+            <input type="text" placeholder="Search products or SKU..." />
+          </div>
+
+          <select>
+            <option>All categories</option>
+            <option>Electronics</option>
+            <option>Accessories</option>
+            <option>Office supplies</option>
+          </select>
+
+          <select>
+            <option>All status</option>
+            <option>In stock</option>
+            <option>Low stock</option>
+            <option>Out of stock</option>
+          </select>
+
+          <button class="filter-button">☷ Filters</button>
+        </div>
+
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>
+                  <input type="checkbox" />
+                </th>
+                <th>Product</th>
+                <th>SKU</th>
+                <th>Category</th>
+                <th>Stock level</th>
+                <th>Price</th>
+                <th>Status</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+
+            <tbody>
+
+              <tr>
+                <td><input type="checkbox" /></td>
+                <td>
+                  <div class="product">
+                    <img src="https://images.unsplash.com/photo-1558008258-3256797b43f3?w=100" alt="Smart Sensor">
+                    <div>
+                      <strong>Smart Sensor</strong>
+                      <span>Updated 2 hours ago</span>
+                    </div>
+                  </div>
+                </td>
+                <td>SS-1001</td>
+                <td>IoT Devices</td>
+                <td>
+                  <strong>84 units</strong>
+                  <div class="progress">
+                    <div style="width: 84%"></div>
+                  </div>
+                </td>
+                <td>₹1,299</td>
+                <td><span class="status in-stock">In stock</span></td>
+                <td><button class="more">⋮</button></td>
+              </tr>
+
+              <tr>
+                <td><input type="checkbox" /></td>
+                <td>
+                  <div class="product">
+                    <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=100" alt="Gateway Hub">
+                    <div>
+                      <strong>Gateway Hub</strong>
+                      <span>Updated yesterday</span>
+                    </div>
+                  </div>
+                </td>
+                <td>GH-2002</td>
+                <td>Network</td>
+                <td>
+                  <strong>18 units</strong>
+                  <div class="progress orange-progress">
+                    <div style="width: 25%"></div>
+                  </div>
+                </td>
+                <td>₹2,499</td>
+                <td><span class="status low-stock">Low stock</span></td>
+                <td><button class="more">⋮</button></td>
+              </tr>
+
+              <tr>
+                <td><input type="checkbox" /></td>
+                <td>
+                  <div class="product">
+                    <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=100" alt="Control Panel">
+                    <div>
+                      <strong>Control Panel</strong>
+                      <span>Updated 3 days ago</span>
+                    </div>
+                  </div>
+                </td>
+                <td>CP-3003</td>
+                <td>Controllers</td>
+                <td>
+                  <strong>0 units</strong>
+                  <div class="progress red-progress">
+                    <div style="width: 3%"></div>
+                  </div>
+                </td>
+                <td>₹4,999</td>
+                <td><span class="status out-stock">Out of stock</span></td>
+                <td><button class="more">⋮</button></td>
+              </tr>
+
+              <tr>
+                <td><input type="checkbox" /></td>
+                <td>
+                  <div class="product">
+                    <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=100" alt="Power Adapter">
+                    <div>
+                      <strong>Power Adapter</strong>
+                      <span>Updated 4 days ago</span>
+                    </div>
+                  </div>
+                </td>
+                <td>PA-4004</td>
+                <td>Accessories</td>
+                <td>
+                  <strong>126 units</strong>
+                  <div class="progress">
+                    <div style="width: 92%"></div>
+                  </div>
+                </td>
+                <td>₹799</td>
+                <td><span class="status in-stock">In stock</span></td>
+                <td><button class="more">⋮</button></td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+
+        <div class="pagination">
+          <span>Showing 1 to 4 of 1,284 products</span>
+          <div>
+            <button>‹</button>
+            <button class="page-active">1</button>
+            <button>2</button>
+            <button>3</button>
+            <button>...</button>
+            <button>322</button>
+            <button>›</button>
+          </div>
+        </div>
+
+      </section>
+
+    </main>
+  </div>
+
+</body>
+</html>
