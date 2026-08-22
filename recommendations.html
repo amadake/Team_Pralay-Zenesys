@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Recommendations | SUPPLY AI</title>
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="recommendations.css">
+</head>
+<body>
+
+    <div class="dashboard-wrapper">
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+            <div class="sidebar-brand">
+                <div class="logo-container">
+                    <i data-lucide="box"></i>
+                </div>
+                <div>
+                    <span class="main-logo">SUPPLY AI</span>
+                    <span class="sub-logo">Smarter Forecasting,<br>Stronger Fulfillment</span>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="index.html" class="nav-item">
+                    <i data-lucide="layout-dashboard"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="order.html" class="nav-item">
+                    <i data-lucide="clipboard-list"></i>
+                    <span>Orders</span>
+                </a>
+                <a href="inventory.html" class="nav-item">
+                    <i data-lucide="package"></i>
+                    <span>Inventory</span>
+                </a>
+                <a href="Demand_forecast.html" class="nav-item">
+                    <i data-lucide="trending-up"></i>
+                    <span>Demand Forecast</span>
+                </a>
+                <a href="shipment.html" class="nav-item">
+                    <i data-lucide="truck"></i>
+                    <span>Shipments</span>
+                </a>
+                <a href="suppliers.html" class="nav-item">
+                    <i data-lucide="users"></i>
+                    <span>Suppliers</span>
+                </a>
+                <a href="reports.html" class="nav-item">
+                    <i data-lucide="file-bar-chart"></i>
+                    <span>Reports</span>
+                </a>
+                <a href="recommendations.html" class="nav-item active">
+                    <i data-lucide="sparkles"></i>
+                    <span>AI Recommendations</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <a href="#" class="nav-item">
+                    <i data-lucide="settings"></i>
+                    <span>Settings</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i data-lucide="log-out"></i>
+                    <span>Logout</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <main class="main-container">
+            <!-- HEADER -->
+            <header class="top-header">
+                <div class="search-container">
+                    <i data-lucide="search"></i>
+                    <input type="text" placeholder="Search insights...">
+                </div>
+
+                <div class="header-right">
+                    <span class="date">Aug 24, 2024</span>
+                    <div class="notification-icon">
+                        <i data-lucide="bell"></i>
+                        <span class="notif-badge">3</span>
+                    </div>
+                    <div class="user-profile">
+                        <div class="avatar">AR</div>
+                        <div class="user-info">
+                            <span class="name">Alex Rivera</span>
+                            <span class="role">Operations Head</span>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <div class="content-body">
+                <!-- AI SUMMARY CARDS -->
+                <div class="kpi-grid">
+                    <div class="kpi-card">
+                        <div class="kpi-icon-box light-purple"><i data-lucide="zap"></i></div>
+                        <div class="kpi-data"><span class="label">Total Insights</span><span class="value">12</span></div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-icon-box light-blue"><i data-lucide="trending-down"></i></div>
+                        <div class="kpi-data"><span class="label">Projected Savings</span><span class="value">$4,250</span></div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-icon-box light-orange"><i data-lucide="alert-circle"></i></div>
+                        <div class="kpi-data"><span class="label">Critical Actions</span><span class="value">2</span></div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-icon-box light-red"><i data-lucide="shield-check"></i></div>
+                        <div class="kpi-data"><span class="label">AI Confidence</span><span class="value">98%</span></div>
+                    </div>
+                </div>
+
+                <!-- RECOMMENDATION CARDS SECTION -->
+                <div class="recommendations-container">
+                    <div class="card-header-flex">
+                        <h3>AI Generated Insights</h3>
+                        <span class="status-pill-green">Analysis Up to Date</span>
+                    </div>
+
+                    <div class="insight-list">
+                        <!-- Recommendation 1 -->
+                        <div class="recommendation-card critical">
+                            <div class="rec-icon"><i data-lucide="alert-triangle"></i></div>
+                            <div class="rec-content">
+                                <div class="rec-top">
+                                    <h4>Restock Urgency: Gaming Laptops</h4>
+                                    <span class="confidence-tag">94% Confidence</span>
+                                </div>
+                                <p>Demand is projected to spike by <strong>25%</strong> in the next 14 days due to the "Back to School" event. Current stock will be depleted in 4 days.</p>
+                                <div class="rec-footer">
+                                    <div class="rec-meta"><strong>Recommendation:</strong> Order 45 units immediately.</div>
+                                    <button class="btn-primary-sm">Execute Order</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Recommendation 2 -->
+                        <div class="recommendation-card savings">
+                            <div class="rec-icon"><i data-lucide="dollar-sign"></i></div>
+                            <div class="rec-content">
+                                <div class="rec-top">
+                                    <h4>Supplier Cost Optimization</h4>
+                                    <span class="confidence-tag">88% Confidence</span>
+                                </div>
+                                <p>Switching to <strong>Global Logistics Ltd</strong> for your "Smartwatch" shipments could reduce shipping costs by <strong>$1.20 per unit</strong>.</p>
+                                <div class="rec-footer">
+                                    <div class="rec-meta"><strong>Potential Savings:</strong> $840 / month</div>
+                                    <button class="btn-secondary-sm">View Comparison</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Recommendation 3 -->
+                        <div class="recommendation-card optimization">
+                            <div class="rec-icon"><i data-lucide="layers"></i></div>
+                            <div class="rec-content">
+                                <div class="rec-top">
+                                    <h4>Inventory Rebalancing</h4>
+                                    <span class="confidence-tag">91% Confidence</span>
+                                </div>
+                                <p>Storage for "Mechanical Keyboards" is at 95% capacity. Moving 100 units to the West Coast warehouse will reduce local fulfillment times by 2 days.</p>
+                                <div class="rec-footer">
+                                    <div class="rec-meta"><strong>Benefit:</strong> Faster delivery & lower storage tax.</div>
+                                    <button class="btn-secondary-sm">Schedule Transfer</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
